@@ -1,0 +1,19 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+.idea/
+*.DS_Store
+
+## Secrets — never commit real keys
+appsettings.*.json
+!appsettings.json
+!appsettings.Development.json
+
+## Build outputs
+*.dll
+*.exe
+*.pdb
+*.nupkg
