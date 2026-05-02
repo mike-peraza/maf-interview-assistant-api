@@ -33,11 +33,29 @@ Fill in `src/InterviewAssistant.Api/appsettings.Development.json` (or set env va
 
 Environment variable equivalents (useful for CI/CD):
 
+## Mac/ Linux
+
+```bash
+export AzureOpenAI__Endpoint="<https://resource.openai.azure.com>"
+export AzureOpenAI__Deployment="<deployment-name>"
+export AzureOpenAI__ApiKey="<your-key>"
 ```
-AZUREOPENAI__ENDPOINT=https://...
-AZUREOPENAI__DEPLOYMENT=gpt-4o-mini
-AZUREOPENAI__APIKEY=...
+
+List all env variables
+
+```bash
+# Displays all environment variables currently set for your shell session
+printenv
 ```
+
+## Windows
+
+```bash
+setx AzureOpenAI__Endpoint="<https://resource.openai.azure.com>"
+setx AzureOpenAI__Deployment="<deployment-name>"
+setx AzureOpenAI__ApiKey="<your-key>"
+```
+
 
 ---
 
