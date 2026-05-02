@@ -14,11 +14,13 @@ public static class AgentFactory
     /// </summary>
     public static AIAgent CreateAzureOpenAIAgent(string name, string instructions, IConfiguration config)
     {
-        var endpoint = config["AzureOpenAI:Endpoint"]
-                       ?? throw new InvalidOperationException("Missing AzureOpenAI:Endpoint configuration");
+        var endpoint = config["AzureOpenAI:Endpoint"];
+        if (string.IsNullOrWhiteSpace(endpoint))
+            throw new InvalidOperationException("Missing AzureOpenAI:Endpoint configuration");
 
-        var deployment = config["AzureOpenAI:Deployment"]
-                         ?? throw new InvalidOperationException("Missing AzureOpenAI:Deployment configuration");
+        var deployment = config["AzureOpenAI:Deployment"];
+        if (string.IsNullOrWhiteSpace(deployment))
+            throw new InvalidOperationException("Missing AzureOpenAI:Deployment configuration");
 
         var apiKey = config["AzureOpenAI:ApiKey"];
 
