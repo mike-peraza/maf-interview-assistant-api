@@ -3,7 +3,9 @@ bin/
 obj/
 *.user
 *.suo
+*.sln.docstates
 .vs/
+.vscode/
 .idea/
 *.DS_Store
 
@@ -11,9 +13,23 @@ obj/
 appsettings.*.json
 !appsettings.json
 !appsettings.Development.json
+*.pfx
+*.key
 
 ## Build outputs
 *.dll
 *.exe
 *.pdb
 *.nupkg
+*.cache
+publish/
+
+## Test results
+TestResults/
+coverage/
+*.trx
+*.coverage
+
+## Logs
+logs/
+*.log
