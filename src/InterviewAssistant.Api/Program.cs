@@ -1,3 +1,4 @@
+using InterviewAssistant.Api.Agents;
 using InterviewAssistant.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,9 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 // ─── Services ─────────────────────────────────────────────────────────────────
 builder.Services.AddControllers();
 
-// Register InterviewService as a singleton — agents are thread-safe and
-// expensive to construct (one per process is appropriate for a demo/dev setup).
-builder.Services.AddSingleton<InterviewService>();
+// Agents are thread-safe and expensive to construct — singletons are appropriate for a demo/dev setup.
+builder.Services.AddSingleton<IAgentRunner, JsonAgentRunner>();
+builder.Services.AddSingleton<IInterviewService, InterviewService>();
 
 // Swagger / OpenAPI
 builder.Services.AddEndpointsApiExplorer();
@@ -70,3 +71,6 @@ app.UseCors();
 app.MapControllers();
 
 app.Run();
+
+// Required for WebApplicationFactory<Program> in integration tests
+public partial class Program { }
